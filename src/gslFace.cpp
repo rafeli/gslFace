@@ -1,6 +1,6 @@
 #include "gslFace.hpp"
 
-// Vector functions
+// Vector Allocation, init and access
 momoVector_*      momo_vector_alloc(long unsigned int x) { return gsl_vector_alloc(x);}
 
 void              momo_vector_free(momoVector_ * v) { gsl_vector_free(v);}
@@ -13,6 +13,11 @@ momoVector_const_view   momo_vector_const_subvector(const momoVector_ *v, size_t
                     return gsl_vector_const_subvector(v,offset,n);
                   }
 
+// Vector Operations
+int  momo_vector_sub(momoVector_*a, const momoVector_*b) {return gsl_vector_sub(a,b);}
+int  momo_vector_add(momoVector_*a, const momoVector_*b) {return gsl_vector_add(a,b);}
+int  momo_vector_scale(momoVector_*a, const double b) {return gsl_vector_scale(a,b);}
+
 // Matrix functins
 momoMatrix_*      momo_matrix_alloc(long unsigned int rows, long unsigned int cols) {
                     return gsl_matrix_alloc(rows,cols);
@@ -24,4 +29,5 @@ double            momo_matrix_get(momoMatrix_ *m, size_t i, size_t j) { return g
 
 // BLAS:
 double            momo_blas_dnrm2(const momoVector_ *v) { return gsl_blas_dnrm2(v);}
+int               momo_blas_ddot(const momoVector_ *x, const momoVector_ *y, double *r) { return gsl_blas_ddot(x,y,r);}
 
