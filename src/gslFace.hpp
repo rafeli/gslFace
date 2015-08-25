@@ -25,10 +25,15 @@ momoMatrix_ *   momo_matrix_alloc     (long unsigned int, long unsigned int);
 void            momo_matrix_free      (momoMatrix_ *);
 momoVector_view momo_matrix_row       (momoMatrix_ *, size_t i);
 double          momo_matrix_get       (momoMatrix_ *, size_t, size_t);
+void            momo_matrix_set       (momoMatrix_ *, size_t, size_t, double);
+void            momo_matrix_set_zero  (momoMatrix_ *);
+int             momo_matrix_memcpy    (momoMatrix_ *, momoMatrix_*);
+int             momo_matrix_scale(momoMatrix_ *, const double ) ;
 
 // BLAS
 double          momo_blas_dnrm2       (const momoVector_ *);
 int             momo_blas_ddot        (const momoVector_ *, const momoVector_*, double * );
-
+int             momo_blas_dgemv       (CBLAS_TRANSPOSE_t , double , const momoMatrix_* , const momoVector_* , double , momoVector_* );
+int             momo_blas_dgemm       (CBLAS_TRANSPOSE_t , CBLAS_TRANSPOSE_t, double , const momoMatrix_* , const momoMatrix_* , double , momoMatrix_* );
 
 #endif 
