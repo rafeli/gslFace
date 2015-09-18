@@ -34,5 +34,6 @@ double            momo_blas_dnrm2(const momoVector_ *v) { return gsl_blas_dnrm2(
 int               momo_blas_ddot(const momoVector_ *x, const momoVector_ *y, double *r) { return gsl_blas_ddot(x,y,r);}
 int               momo_blas_dgemv(CBLAS_TRANSPOSE_t t, double alpha, const momoMatrix_* A, const momoVector_* v, double beta, momoVector_* result) { return gsl_blas_dgemv(t, alpha, A, v, beta, result);}
 int               momo_blas_dgemm(CBLAS_TRANSPOSE_t tA, CBLAS_TRANSPOSE_t tB, double alpha, const momoMatrix_* A, const momoMatrix_* B, double beta, momoMatrix_* result) { return gsl_blas_dgemm(tA, tB, alpha, A, B, beta, result);}
+int               momo_blas_dger(double alpha, const momoVector_* x, const momoVector_* y, momoMatrix_* A){return gsl_blas_dger(alpha, x,y,A);}
  
 

@@ -35,5 +35,6 @@ double          momo_blas_dnrm2       (const momoVector_ *);
 int             momo_blas_ddot        (const momoVector_ *, const momoVector_*, double * );
 int             momo_blas_dgemv       (CBLAS_TRANSPOSE_t , double , const momoMatrix_* , const momoVector_* , double , momoVector_* );
 int             momo_blas_dgemm       (CBLAS_TRANSPOSE_t , CBLAS_TRANSPOSE_t, double , const momoMatrix_* , const momoMatrix_* , double , momoMatrix_* );
+int             momo_blas_dger        (double , const momoVector_* , const momoVector_* , momoMatrix_* );
 
 #endif 
